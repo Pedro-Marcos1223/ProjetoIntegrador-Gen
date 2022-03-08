@@ -22,15 +22,15 @@ public class Usuario {
 	private long id;
 
 	@NotNull
-	@Size(max = 45)
-	private String login;
+	@Size(max = 100)
+	private String usuario;
 
 	@NotNull
-	@Size(max = 45)
+	@Size(min = 5, max = 100)
 	private String senha;
 
 	@NotNull
-	@Size(max = 45)
+	@Size(max = 100)
 	private String nome;
 
 	@Size(max = 255)
@@ -51,12 +51,13 @@ public class Usuario {
 		this.id = id;
 	}
 
-	public String getLogin() {
-		return login;
+
+	public String getUsuario() {
+		return usuario;
 	}
 
-	public void setLogin(String login) {
-		this.login = login;
+	public void setUsuario(String usuario) {
+		this.usuario = usuario;
 	}
 
 	public String getSenha() {

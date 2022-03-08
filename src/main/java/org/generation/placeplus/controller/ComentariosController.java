@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/comentarios")
 public class ComentariosController {
 	
+
 	@Autowired
 	private ComentariosRepository repository;
 	
@@ -49,5 +50,6 @@ public class ComentariosController {
 	public void delete(@PathVariable int id) {
 		repository.deleteById(id);
 	}
+
 
 }

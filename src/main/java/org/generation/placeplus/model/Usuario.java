@@ -19,7 +19,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 public class Usuario {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int idUsuario;
+	private long id;
 
 	@NotNull
 	@Size(max = 45)
@@ -43,12 +43,12 @@ public class Usuario {
 	@JsonIgnoreProperties("usuario")
 	private List<Comentarios> comentarios;
 
-	public int getIdUsuario() {
-		return idUsuario;
+	public long getId() {
+		return id;
 	}
 
-	public void setIdUsuario(int idUsuario) {
-		this.idUsuario = idUsuario;
+	public void setId(long id) {
+		this.id = id;
 	}
 
 	public String getLogin() {

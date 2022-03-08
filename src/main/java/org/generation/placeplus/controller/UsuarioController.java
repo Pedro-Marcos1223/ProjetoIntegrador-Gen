@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.generation.placeplus.model.Usuario;
 import org.generation.placeplus.repository.UsuarioRepository;
+import org.generation.placeplus.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -23,4 +24,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 public class UsuarioController {
 
+	@Autowired
+	private UsuarioService usuarioService;
+	
+	@PostMapping("/cadastrar")
+	public ResponseEntity<Usuario> post(@RequestBody Usuario usuario){
+		return ResponseEntity.status(HttpStatus.CREATED).body(usuarioService.cadastrarUsuario(usuario));
+	}
 }

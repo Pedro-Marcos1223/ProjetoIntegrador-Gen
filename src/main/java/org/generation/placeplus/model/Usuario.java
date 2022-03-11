@@ -21,7 +21,7 @@ public class Usuario {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 
-	@NotNull
+	@NotNull(message = " O Usuario é obrigatório!!!")
 	@Size(max = 100)
 	private String usuario;
 

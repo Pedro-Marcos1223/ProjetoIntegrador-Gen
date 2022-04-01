@@ -35,6 +35,8 @@ public class Usuario {
 
 	@Size(max = 255)
 	private String foto;
+	
+	private String tipo;
 
 	@Size(max = 45)
 	private String pronome;
@@ -51,6 +53,13 @@ public class Usuario {
 		this.id = id;
 	}
 
+	public String getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
+	}
 
 	public String getUsuario() {
 		return usuario;

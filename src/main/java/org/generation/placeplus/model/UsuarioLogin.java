@@ -10,10 +10,13 @@ public class UsuarioLogin {
 		
 		private String foto;
 		
+		private String tipo;
+		
 		private String pronome;
 		
 		private String token;
 
+		/*Getters and Setters*/
 		
 		public String getNome() {
 			return nome;
@@ -62,7 +65,13 @@ public class UsuarioLogin {
 		public void setToken(String token) {
 			this.token = token;
 		}
-		
-		
-		
+
+		public String getTipo() {
+			return tipo;
+		}
+
+		public void setTipo(String tipo) {
+			this.tipo = tipo;
+		}
+
 }

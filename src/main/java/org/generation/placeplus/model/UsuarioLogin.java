@@ -1,6 +1,8 @@
 package org.generation.placeplus.model;
 
 public class UsuarioLogin {
+	
+		private long id;
 		
 		private String nome;
 		
@@ -72,6 +74,14 @@ public class UsuarioLogin {
 
 		public void setTipo(String tipo) {
 			this.tipo = tipo;
+		}
+	
+		public long getId() {
+		return id;
+		}
+
+		public void setId(long id) {
+		this.id = id;
 		}
 
 }

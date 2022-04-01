@@ -41,7 +41,7 @@ public class Usuario {
 	@Size(max = 45)
 	private String pronome;
 
-	@OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "usuario", cascade = CascadeType.REMOVE)
 	@JsonIgnoreProperties("usuario")
 	private List<Comentarios> comentarios;
 

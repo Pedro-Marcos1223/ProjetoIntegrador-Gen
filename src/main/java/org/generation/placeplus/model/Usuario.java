@@ -53,14 +53,6 @@ public class Usuario {
 		this.id = id;
 	}
 
-	public String getTipo() {
-		return tipo;
-	}
-
-	public void setTipo(String tipo) {
-		this.tipo = tipo;
-	}
-
 	public String getUsuario() {
 		return usuario;
 	}
@@ -93,6 +85,14 @@ public class Usuario {
 		this.foto = foto;
 	}
 
+	public String getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
+	}
+
 	public String getPronome() {
 		return pronome;
 	}
@@ -100,5 +100,15 @@ public class Usuario {
 	public void setPronome(String pronome) {
 		this.pronome = pronome;
 	}
+
+	public List<Comentarios> getComentarios() {
+		return comentarios;
+	}
+
+	public void setComentarios(List<Comentarios> comentarios) {
+		this.comentarios = comentarios;
+	}
+
+	
 
 }

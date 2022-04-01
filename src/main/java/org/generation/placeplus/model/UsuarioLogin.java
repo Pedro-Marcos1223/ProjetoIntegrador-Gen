@@ -18,8 +18,14 @@ public class UsuarioLogin {
 		
 		private String token;
 
-		/*Getters and Setters*/
-		
+		public long getId() {
+			return id;
+		}
+
+		public void setId(long id) {
+			this.id = id;
+		}
+
 		public String getNome() {
 			return nome;
 		}
@@ -52,6 +58,14 @@ public class UsuarioLogin {
 			this.foto = foto;
 		}
 
+		public String getTipo() {
+			return tipo;
+		}
+
+		public void setTipo(String tipo) {
+			this.tipo = tipo;
+		}
+
 		public String getPronome() {
 			return pronome;
 		}
@@ -68,20 +82,7 @@ public class UsuarioLogin {
 			this.token = token;
 		}
 
-		public String getTipo() {
-			return tipo;
-		}
-
-		public void setTipo(String tipo) {
-			this.tipo = tipo;
-		}
-	
-		public long getId() {
-		return id;
-		}
-
-		public void setId(long id) {
-		this.id = id;
-		}
+		
+		
 
 }

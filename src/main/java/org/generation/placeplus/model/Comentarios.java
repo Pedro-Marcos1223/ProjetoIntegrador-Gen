@@ -39,7 +39,7 @@ public class Comentarios {
     private Postagem postagem;
 
     @ManyToOne
-    @JsonIgnoreProperties({"senha","comentarios"})
+    @JsonIgnoreProperties({"comentarios","postagem"})
     private Usuario usuario;
 
     public int getIdCom() {

@@ -50,7 +50,7 @@ public class Postagem {
 	private Usuario usuario;
 	
 	@OneToMany(mappedBy = "postagem", cascade = CascadeType.REMOVE)
-	@JsonIgnoreProperties({"usuario","postagem","comentarios"})
+	@JsonIgnoreProperties("postagem")
 	private List<Comentarios> comentarios;
 	
 	//Getters e Setters

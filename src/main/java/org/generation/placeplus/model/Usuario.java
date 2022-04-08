@@ -40,9 +40,10 @@ public class Usuario {
 
 	@Size(max = 45)
 	private String pronome;
-
+	
+	
 	@OneToMany(mappedBy = "usuario", cascade = CascadeType.REMOVE)
-	@JsonIgnoreProperties("usuario")
+	@JsonIgnoreProperties({"usuario","postagem"})
 	private List<Comentarios> comentarios;
 
 	public long getId() {

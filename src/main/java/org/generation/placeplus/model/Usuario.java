@@ -42,7 +42,7 @@ public class Usuario {
 	private String pronome;
 	
 	@OneToMany(mappedBy = "usuario", cascade = CascadeType.REMOVE)
-	@JsonIgnoreProperties({"usuario","comentarios","postagem"})
+	@JsonIgnoreProperties({"usuario","comentarios"})
 	private List<Postagem> postagem;
 	
 	@OneToMany(mappedBy = "usuario", cascade = CascadeType.REMOVE)

@@ -41,6 +41,9 @@ public class Usuario {
 	@Size(max = 45)
 	private String pronome;
 	
+	@OneToMany(mappedBy = "usuario", cascade = CascadeType.REMOVE)
+	@JsonIgnoreProperties({"usuario","comentarios","postagem"})
+	private List<Postagem> postagem;
 	
 	@OneToMany(mappedBy = "usuario", cascade = CascadeType.REMOVE)
 	@JsonIgnoreProperties({"usuario","postagem"})
@@ -109,6 +112,16 @@ public class Usuario {
 	public void setComentarios(List<Comentarios> comentarios) {
 		this.comentarios = comentarios;
 	}
+
+	public List<Postagem> getPostagem() {
+		return postagem;
+	}
+
+	public void setPostagem(List<Postagem> postagem) {
+		this.postagem = postagem;
+	}
+	
+	
 
 	
 

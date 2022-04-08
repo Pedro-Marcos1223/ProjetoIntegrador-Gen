@@ -46,11 +46,11 @@ public class Postagem {
 	private Date data = new java.sql.Date(System.currentTimeMillis());
 	
 	@ManyToOne
-	@JsonIgnoreProperties ({"senha","postagem"})
+	@JsonIgnoreProperties ({"senha","usuario","comentarios","postagem"})
 	private Usuario usuario;
 	
 	@OneToMany(mappedBy = "postagem", cascade = CascadeType.REMOVE)
-	@JsonIgnoreProperties("postagem")
+	@JsonIgnoreProperties({"usuario","postagem","comentarios"})
 	private List<Comentarios> comentarios;
 	
 	//Getters e Setters

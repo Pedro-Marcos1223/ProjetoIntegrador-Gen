@@ -35,7 +35,7 @@ public class Comentarios {
     private boolean sensivel;
 
     @ManyToOne
-    @JsonIgnoreProperties("comentarios")
+    @JsonIgnoreProperties({"usuario","comentarios"})
     private Postagem postagem;
 
     @ManyToOne

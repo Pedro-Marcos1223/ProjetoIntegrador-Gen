@@ -50,6 +50,7 @@ public class ComentariosController {
 	public void delete(@PathVariable int id) {
 		repository.deleteById(id);
 	}
+	
 
 
 }

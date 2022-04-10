@@ -32,6 +32,9 @@ public class Usuario {
 	@NotNull
 	@Size(max = 100)
 	private String nome;
+	
+	@Size(max = 350)
+	private String bio;
 
 	@Size(max = 255)
 	private String foto;
@@ -71,6 +74,14 @@ public class Usuario {
 
 	public void setSenha(String senha) {
 		this.senha = senha;
+	}
+
+	public String getBio() {
+		return bio;
+	}
+
+	public void setBio(String bio) {
+		this.bio = bio;
 	}
 
 	public String getNome() {

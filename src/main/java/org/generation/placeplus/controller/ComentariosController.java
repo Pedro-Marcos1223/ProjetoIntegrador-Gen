@@ -30,6 +30,12 @@ public class ComentariosController {
 	public ResponseEntity<List<Comentarios>> getAll(){
 		return ResponseEntity.ok(repository.findAll());
 	}
+
+	@GetMapping("/{id}")
+	public ResponseEntity<Comentarios> getById(@PathVariable int id) {
+		return repository.findById(id).map(resp -> ResponseEntity.ok(resp))
+			.orElse(ResponseEntity.notFound().build());
+	}
 	
 	@GetMapping("/texto/{texto}")
 	public ResponseEntity<List<Comentarios>> getByTexto(@PathVariable String texto){

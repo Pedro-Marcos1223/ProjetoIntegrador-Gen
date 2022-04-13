@@ -32,6 +32,9 @@ public class Usuario {
 	@NotNull
 	@Size(max = 100)
 	private String nome;
+	
+	@Size(max = 350)
+	private String bio;
 
 	@Size(max = 255)
 	private String foto;
@@ -40,9 +43,13 @@ public class Usuario {
 
 	@Size(max = 45)
 	private String pronome;
-
+	
 	@OneToMany(mappedBy = "usuario", cascade = CascadeType.REMOVE)
-	@JsonIgnoreProperties("usuario")
+	@JsonIgnoreProperties({"usuario","comentarios"})
+	private List<Postagem> postagem;
+	
+	@OneToMany(mappedBy = "usuario", cascade = CascadeType.REMOVE)
+	@JsonIgnoreProperties({"usuario","postagem"})
 	private List<Comentarios> comentarios;
 
 	public long getId() {
@@ -67,6 +74,14 @@ public class Usuario {
 
 	public void setSenha(String senha) {
 		this.senha = senha;
+	}
+
+	public String getBio() {
+		return bio;
+	}
+
+	public void setBio(String bio) {
+		this.bio = bio;
 	}
 
 	public String getNome() {
@@ -108,6 +123,16 @@ public class Usuario {
 	public void setComentarios(List<Comentarios> comentarios) {
 		this.comentarios = comentarios;
 	}
+
+	public List<Postagem> getPostagem() {
+		return postagem;
+	}
+
+	public void setPostagem(List<Postagem> postagem) {
+		this.postagem = postagem;
+	}
+	
+	
 
 	
 

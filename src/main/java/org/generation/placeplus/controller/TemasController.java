@@ -4,8 +4,8 @@ import java.util.List;
 
 import javax.validation.Valid;
 
-import org.generation.placeplus.model.Postagem;
-import org.generation.placeplus.repository.PostagemRepository;
+import org.generation.placeplus.model.Temas;
+import org.generation.placeplus.repository.TemasRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,40 +20,42 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/postagens")
+@RequestMapping("/temas")
 @CrossOrigin(origins = "*", allowedHeaders = "*")
-public class PostagemController {
-	
+public class TemasController {
+
 	@Autowired
-	private PostagemRepository repository;
+	private TemasRepository repository;
 	
 	@GetMapping
-	public ResponseEntity<List<Postagem>> GetALL(){
+	public ResponseEntity<List<Temas>> getAllTemas(){
 		return ResponseEntity.ok(repository.findAll());
 	}
 	
 	@GetMapping("/{id}")
-	public ResponseEntity<Postagem> GetById(@PathVariable int id){
+	public ResponseEntity<Temas> getByIdTema(@PathVariable Long id){
 		return repository.findById(id)
 				.map(resp -> ResponseEntity.ok(resp))
 				.orElse(ResponseEntity.notFound().build());
 	}
 	
-	@GetMapping("/titulo/{titulo}")
-	public ResponseEntity<List<Postagem>> GetByTitulo(@PathVariable String titulo){
-		return ResponseEntity.ok(repository.findAllByTituloContainingIgnoreCase(titulo));
+	@GetMapping("/nomeTema/{nomeTema}")
+	public ResponseEntity<List<Temas>> getByNomeTema (@PathVariable String nomeTema){
+		return ResponseEntity.ok(repository.findAllByNomeTemaContainingIgnoreCase(nomeTema));
 	}
 	
 	@PostMapping
-	public ResponseEntity<Postagem> post (@Valid @RequestBody Postagem postagem){
-		return ResponseEntity.status(HttpStatus.CREATED).body(repository.save(postagem));
+	public ResponseEntity<Temas> postTema (@Valid @RequestBody Temas temas){
+		return ResponseEntity.status(HttpStatus.CREATED).body(repository.save(temas));
 	}
-	@PutMapping
-	public ResponseEntity<Postagem> put (@Valid @RequestBody Postagem postagem){
-		return ResponseEntity.ok(repository.save(postagem));		
+	
+	@PutMapping 
+	public ResponseEntity<Temas> putTema (@Valid @RequestBody Temas temas){
+		return ResponseEntity.ok(repository.save(temas));
 	}
+	
 	@DeleteMapping("/{id}")
-	public void delete(@PathVariable int id) {
+	public void delete (@PathVariable Long id) {
 		repository.deleteById(id);
 	}
 }

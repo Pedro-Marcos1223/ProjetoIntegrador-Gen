@@ -16,6 +16,8 @@ public class UsuarioLogin {
 		
 		private String pronome;
 		
+		private String bio;
+		
 		private String token;
 
 		public long getId() {
@@ -24,6 +26,14 @@ public class UsuarioLogin {
 
 		public void setId(long id) {
 			this.id = id;
+		}
+
+		public String getBio() {
+			return bio;
+		}
+
+		public void setBio(String bio) {
+			this.bio = bio;
 		}
 
 		public String getNome() {

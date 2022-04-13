@@ -36,22 +36,22 @@ public class Postagem {
 	private String textoPost;
 	
 	@NotNull
-	@Size(min = 1, max = 25)
-	private String tema;
-	
-	@NotNull
 	private boolean sensivel;
 	
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date data = new java.sql.Date(System.currentTimeMillis());
 	
 	@ManyToOne
-	@JsonIgnoreProperties ({"senha","postagem"})
+	@JsonIgnoreProperties ({"senha","usuario","comentarios","postagem"})
 	private Usuario usuario;
 	
 	@OneToMany(mappedBy = "postagem", cascade = CascadeType.REMOVE)
 	@JsonIgnoreProperties("postagem")
 	private List<Comentarios> comentarios;
+	
+	@ManyToOne
+	@JsonIgnoreProperties("postagem")
+	private Temas temas;
 	
 	//Getters e Setters
 
@@ -77,14 +77,6 @@ public class Postagem {
 
 	public void setTextoPost(String textoPost) {
 		this.textoPost = textoPost;
-	}
-
-	public String getTema() {
-		return tema;
-	}
-
-	public void setTema(String tema) {
-		this.tema = tema;
 	}
 
 	public boolean isSensivel() {
@@ -117,6 +109,14 @@ public class Postagem {
 
 	public void setComentarios(List<Comentarios> comentarios) {
 		this.comentarios = comentarios;
+	}
+
+	public Temas getTemas() {
+		return temas;
+	}
+
+	public void setTemas(Temas temas) {
+		this.temas = temas;
 	}
 	
 	

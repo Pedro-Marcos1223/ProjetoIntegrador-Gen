@@ -35,11 +35,11 @@ public class Comentarios {
     private boolean sensivel;
 
     @ManyToOne
-    @JsonIgnoreProperties("comentarios")
+    @JsonIgnoreProperties({"usuario","comentarios"})
     private Postagem postagem;
 
     @ManyToOne
-    @JsonIgnoreProperties({"senha","comentarios"})
+    @JsonIgnoreProperties({"comentarios","postagem"})
     private Usuario usuario;
 
     public int getIdCom() {

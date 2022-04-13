@@ -18,8 +18,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RequestMapping("/comentarios")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class ComentariosController {
 	
 
@@ -29,6 +29,12 @@ public class ComentariosController {
 	@GetMapping
 	public ResponseEntity<List<Comentarios>> getAll(){
 		return ResponseEntity.ok(repository.findAll());
+	}
+
+	@GetMapping("/{id}")
+	public ResponseEntity<Comentarios> getById(@PathVariable int id) {
+		return repository.findById(id).map(resp -> ResponseEntity.ok(resp))
+			.orElse(ResponseEntity.notFound().build());
 	}
 	
 	@GetMapping("/texto/{texto}")
@@ -50,6 +56,7 @@ public class ComentariosController {
 	public void delete(@PathVariable int id) {
 		repository.deleteById(id);
 	}
+	
 
 
 }

@@ -1,5 +1,6 @@
 package org.generation.placeplus.model;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -47,7 +48,7 @@ public class Postagem {
 	
 	@OneToMany(mappedBy = "postagem", cascade = CascadeType.REMOVE)
 	@JsonIgnoreProperties("postagem")
-	private List<Comentarios> comentarios;
+	private List<Comentarios> comentarios = new ArrayList<>();
 	
 	@ManyToOne
 	@JsonIgnoreProperties("postagem")

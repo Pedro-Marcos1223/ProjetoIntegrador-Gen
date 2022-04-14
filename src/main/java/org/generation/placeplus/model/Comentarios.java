@@ -23,7 +23,6 @@ public class Comentarios {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idCom;
 
-    @NotNull
     @Temporal(TemporalType.TIMESTAMP)
 	private Date data = new java.sql.Date(System.currentTimeMillis());
 

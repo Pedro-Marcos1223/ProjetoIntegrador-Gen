@@ -1,5 +1,6 @@
 package org.generation.placeplus.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -46,11 +47,11 @@ public class Usuario {
 	
 	@OneToMany(mappedBy = "usuario", cascade = CascadeType.REMOVE)
 	@JsonIgnoreProperties({"usuario","comentarios"})
-	private List<Postagem> postagem;
+	private List<Postagem> postagem = new ArrayList<>();
 	
 	@OneToMany(mappedBy = "usuario", cascade = CascadeType.REMOVE)
 	@JsonIgnoreProperties({"usuario","postagem"})
-	private List<Comentarios> comentarios;
+	private List<Comentarios> comentarios = new ArrayList<>();
 
 	public long getId() {
 		return id;
